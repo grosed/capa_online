@@ -1,4 +1,4 @@
-
+from .utils import *
 
 def capa_normal_mean(size) :
     return (normal_mean(size),
