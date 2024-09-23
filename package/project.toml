@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "capa_online"
+version = "1.1.1"
+maintainers = [
+  { name="Daniel Grose", email="dan.grose@lancaster.ac.uk" }
+]
+authors = [
+  { name="Daniel Grose", email="dan.grose@lancaster.ac.uk"}
+]
+description = "An Online Implementation of the Collective and Point Anomalies (CAPA) Algorithm"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pymonad"
+]
+
+[project.urls]
+homepage = "https://github.com/grosed/capa_online"
+
+
+
