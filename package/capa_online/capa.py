@@ -41,6 +41,5 @@ def capa(cost,beta,beta_dash) :
         _,_,cardinality,_,insert = cpts
         insert(cardinality()-1,(pos,category))
         S = scale_F(S)
-        log = [value(i) for i in domain()]
         return capa_cpts(cpts)
     return push
