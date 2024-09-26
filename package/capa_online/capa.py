@@ -38,8 +38,8 @@ def capa(cost,beta,beta_dash) :
         pos = value(cardinality()-1)
         value,category = min((f,0),(fprev+C2(x,beta,beta_dash),1),(fprev+C3(x,beta,beta_dash),2))
         insert(cardinality()-1,value)
-        _,_,cardinality,_,insert = cpts
+        value,_,cardinality,_,insert = cpts
         insert(cardinality()-1,(pos,category))
         S = scale_F(S)
-        return capa_cpts(cpts)
+        return value,capa_cpts(cpts)
     return push
