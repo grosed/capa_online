@@ -28,7 +28,7 @@ def class_sumstats(size = None) : # sumstats class (a factory)
         return value,domain,cardinality,capacity,push
     def capacity() :
         nonlocal wsize
-        return inf if wsize == None else wsize - 1
+        return inf if wsize == None else wsize
     def value(i) :
         return sumstats[i]
     return value,domain,cardinality,capacity,push
