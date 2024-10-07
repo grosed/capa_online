@@ -189,7 +189,7 @@ def changepoint(cost,beta) :
     def push(x) :
         nonlocal S,beta
         _,_,cpts = S = op(S,x,beta)
-        # S = scale_F(S)
+        S = scale_F(S)
         return op_cpts(cpts)
     return push
 
