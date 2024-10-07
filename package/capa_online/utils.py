@@ -184,7 +184,8 @@ def scale_F(S) :
 def changepoint(cost,beta) :
     _,_,_,capacity,_ = cost
     F = class_ordered_function(deque([],maxlen=capacity()))
-    cpts = class_ordered_function(deque([],maxlen=capacity()))
+    # cpts = class_ordered_function(deque([],maxlen=capacity()))
+    cpts = class_ordered_function(deque([],maxlen=2000))
     S = (cost,F,cpts)
     def push(x) :
         nonlocal S,beta
