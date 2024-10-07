@@ -24,7 +24,7 @@ def class_sumstats(size = None) : # sumstats class (a factory)
         #if len(sumstats) == sumstats.maxlen :
         #    y0,sy0,syy0 = sumstats[0]
         #    sumstats = deque([(y - y0,sy - sy0,syy - syy0) for y,sy,syy in sumstats],
-                             wsize)
+        #                     wsize)
         return value,domain,cardinality,capacity,push
     def capacity() :
         nonlocal wsize
