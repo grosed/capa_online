@@ -115,7 +115,7 @@ def class_summed_cost(segment_cost) :
 def split(cost) :
     value,domain,_ = cost
     vmin,loc = min([(value(i),i) for i in domain()])
-    return (value(0) - vmin,loc-1)
+    return (value(0) - vmin,loc)
 
 @curry(3)
 def scale(mu,sigma,x) :
