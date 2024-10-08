@@ -58,7 +58,33 @@ def class_normal_mean_segment_cost(sumstats) :
                 if b >= a :
                     yield (a,b)
     return value,domain,cardinality
-        
+
+
+def class_normal_mean_var_segment_cost(sumstats) :
+    ss_value,ss_domain,ss_cardinality = sumstats
+    def cardinality() :
+        nonlocal ss_cardinality
+        n = ss_cardinality()
+        return int(n*(n+1)/2)
+    def value(a,b) :
+        nonlocal ss_value
+        _,sya,syya = ss_value(a)
+        _,syb,syyb = ss_value(b+1)
+        n = b - a + 1
+        sigsq = ((syyb - syya) - ((syb-sya)*(syb-sya)/n))/n
+        if sigsq <= 0.00000000001:
+            sigsq = 0.00000000001
+        return n*(log(2.0*pi) + log(sigsq)+1)    
+    def domain() :
+        nonlocal ss_domain
+        outer = ss_domain()
+        for a in outer :
+            inner = ss_domain()
+            for b in inner :
+                if b >= a :
+                    yield (a,b)
+    return value,domain,cardinality
+
 
 def class_right_cost(segment_cost) :
     sc_value,sc_domain,sc_cardinality = segment_cost
@@ -142,6 +168,11 @@ def class_ordered_function(ordered) :
 def normal_mean(size) :
     value,domain,cardinality,capacity,push = class_sumstats(size)
     value,domain,cardinality = class_normal_mean_segment_cost((value,domain,cardinality))
+    return value,domain,cardinality,capacity,push
+
+def normal_mean_var(size) :
+    value,domain,cardinality,capacity,push = class_sumstats(size)
+    value,domain,cardinality = class_normal_mean_var_segment_cost((value,domain,cardinality))
     return value,domain,cardinality,capacity,push
 
 
