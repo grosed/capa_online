@@ -176,10 +176,9 @@ def op(S,x,beta) :
 def scale_F(S) :
     cost,F,cpts = S
     _,_,_,capacity,_ = cost
-    value,domain,cardinality,_,_ = F
-    if cardinality() > 1 :
-        f0 = value(0)
-        F = class_ordered_function(deque([value(i) - f0 for i in domain()],maxlen=capacity()))
+    value,domain,_,_,_ = F
+    f0 = value(0)
+    F = class_ordered_function(deque([value(i) - f0 for i in domain()],maxlen=capacity()))
     return cost,F,cpts
 
 def changepoint(cost,beta) :
@@ -189,8 +188,8 @@ def changepoint(cost,beta) :
     S = (cost,F,cpts)
     def push(x) :
         nonlocal S,beta
-        S = scale_F(S)
         _,_,cpts = S = op(S,x,beta)
+        S = scale_F(S)
         return op_cpts(cpts)
     return push
 
