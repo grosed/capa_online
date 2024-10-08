@@ -1,6 +1,6 @@
 from collections import deque
 from pymonad.tools import curry
-from math import sqrt,log,inf
+from math import sqrt,log,inf,pi
 from functools import reduce
 
 
