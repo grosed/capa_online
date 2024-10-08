@@ -175,8 +175,8 @@ def op(S,x,beta) :
 
 def scale_F(S) :
     cost,F,cpts = S
-    value,_,_,capacity,_ = cost
-    c00 = value(0)
+    value,_,cardinality,capacity,_ = cost
+    c00 = value(0,cardinality()-1)
     value,domain,_,_,_ = F
     f0 = value(0)
     F = class_ordered_function(deque([value(i) - f0 + c00 for i in domain()],maxlen=capacity()))
