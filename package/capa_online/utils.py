@@ -178,7 +178,7 @@ def scale_F(S) :
     _,_,_,capacity,_ = cost
     value,domain,_,_,_ = F
     f0 = value(0)
-    F = class_ordered_function(deque([value(i) - f0 for i in domain()],maxlen=capacity()))
+    F = class_ordered_function(deque([value(i) - f0 for i in domain()],maxlen=capacity()-1))
     return cost,F,cpts
 
 def changepoint(cost,beta) :
