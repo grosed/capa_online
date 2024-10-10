@@ -5,6 +5,11 @@ def capa_normal_mean(size) :
             lambda x,beta,beta_dash : x*x,
             lambda x,beta,beta_dash : 1 + beta_dash)
 
+def capa_normal_mean_var(size) :
+    return (normal_mean(size),
+            lambda x,beta,beta_dash : x*x,
+            lambda x,beta,beta_dash : beta_dash + 1 + log(x*x + 2.0*exp(-2.0*beta)))
+
 def capa_cpts(cpts) :
     value,_,cardinality,_,_ = cpts
     pos = cardinality() - 1
