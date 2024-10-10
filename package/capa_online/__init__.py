@@ -18,6 +18,7 @@ from .utils import scale_F
 from .utils import changepoint # probably do not need this
 
 from .capa import capa_normal_mean
+from .capa import capa_normal_mean_var
 from .capa import capa_cpts
 from .capa import capa
 
